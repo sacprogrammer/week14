@@ -2,9 +2,6 @@ import javax.swing.JOptionPane;
 
 public class playDice {
 
-  /**
-   * @param args
-   */
   public static void main(String[] args) {
   	
   	Dice letsroll = new Dice();
@@ -14,6 +11,8 @@ public class playDice {
   	letsroll.setRollDice(playerChoice);
   	
   	letsroll.displayNumofDice();
+  	
+  	JOptionPane.showMessageDialog(null, "You rolled a " + Dice.roll_1_dice() + " on a single dice");
   	
   }
 
