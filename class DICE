@@ -1,0 +1,31 @@
+import javax.swing.JOptionPane;
+
+
+public class Dice {
+  
+  private int numberofdice;
+  
+  public void setRollDice(int numofdice)
+  {
+  	numberofdice = numofdice;
+  }
+
+  public int getRollDice()
+  {
+  	return numberofdice;
+  }
+  
+  public void displayNumofDice()
+  {
+  	JOptionPane.showMessageDialog(null, "You choose to roll " + getRollDice() + " of dice");
+  }
+  
+  public static int roll_1_dice()
+  {
+  	int dice;
+  	dice = 1+(int)(Math.random()*6);
+  	return dice;
+  }
+  
+  
+}
