@@ -1,9 +1,11 @@
 import javax.swing.JOptionPane;
 
-
 public class Dice {
   
   private int numberofdice;
+  static int maximumValue;
+  static int numofdice;
+  static int totalRolls=0;
   
   public void setRollDice(int numofdice)
   {
@@ -22,10 +24,32 @@ public class Dice {
   
   public static int roll_1_dice()
   {
+  	int me;
+  	me=4;
   	int dice;
   	dice = 1+(int)(Math.random()*6);
-  	return dice;
+  	return dice + me;
   }
   
+  public void RollDice(int playerNumofDice, int maxValue)
+  {
+  	numofdice = playerNumofDice;
+  	maximumValue = maxValue;
+  }
   
+  public int getNumberofDice()
+  {
+  return numofdice;
+  }
+  
+  public int getMaxValueOfDice()
+  {
+  return maximumValue;	
+  }
+  
+  public int RollCount()
+  {
+  	totalRolls= getNumberofDice() + totalRolls;
+  	return totalRolls;
+  }
 }
