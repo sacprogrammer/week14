@@ -8,7 +8,6 @@ public class playDice {
   	String answer;
   	
   	do{
-  	letsroll.setRollDice(Integer.parseInt(JOptionPane.showInputDialog("How many dice would you like to roll?")));
   	
   	letsroll.displayNumofDice();
   	
@@ -16,8 +15,10 @@ public class playDice {
   			
   	letsroll.RollDice((Integer.parseInt(JOptionPane.showInputDialog("How many dice would you like to roll?"))), (Integer.parseInt(JOptionPane.showInputDialog("and their maximum value?"))));
   	
-  	JOptionPane.showMessageDialog(null, "You have rolled the dice " + letsroll.RollCount() + " times");
+  	letsroll.RollDices();
   	
+  	JOptionPane.showMessageDialog(null,"And rolled the dice " + letsroll.RollCount() + " times");
+
   	answer = JOptionPane.showInputDialog("Would you like to play again? y/n");
   	
   }while (answer.equalsIgnoreCase("y"));;
