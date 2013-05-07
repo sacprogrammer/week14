@@ -2,33 +2,23 @@ import javax.swing.JOptionPane;
 
 public class Dice {
   
-  private int numberofdice;
+
   static int maximumValue;
   static int numofdice;
-  static int totalRolls=0;
-  
-  public void setRollDice(int numofdice)
-  {
-  	numberofdice = numofdice;
-  }
+  static int totalRolls;
+  private int counter;
+  String theNumbers = "";
 
-  public int getRollDice()
+  public static int roll_1_dice()
   {
-  	return numberofdice;
+  	int dice;
+  	dice = 1+(int)(Math.random()*6);
+  	return dice;
   }
   
   public void displayNumofDice()
   {
-  	JOptionPane.showMessageDialog(null, "You choose to roll " + getRollDice() + " of dice");
-  }
-  
-  public static int roll_1_dice()
-  {
-  	int me;
-  	me=4;
-  	int dice;
-  	dice = 1+(int)(Math.random()*6);
-  	return dice + me;
+  	JOptionPane.showMessageDialog(null, "You choose to roll " + numofdice + " of dice");
   }
   
   public void RollDice(int playerNumofDice, int maxValue)
@@ -36,20 +26,25 @@ public class Dice {
   	numofdice = playerNumofDice;
   	maximumValue = maxValue;
   }
-  
-  public int getNumberofDice()
+
+  public void RollDices()
   {
-  return numofdice;
+  	for ( int counter = 1; counter <= numofdice; counter++ )
+  	{
+  		String displayDiceNumbers;
+  		int dice;
+  		dice = 1+(int)(Math.random()*maximumValue);			
+  		displayDiceNumbers = String.valueOf(dice);
+  		if ( counter % 5 == 0 )
+  		displayDiceNumbers = (displayDiceNumbers + "\n");	
+  		JOptionPane.showMessageDialog(null, "You got " + displayDiceNumbers);
+  	}
+
   }
-  
-  public int getMaxValueOfDice()
-  {
-  return maximumValue;	
-  }
-  
+  	
   public int RollCount()
   {
-  	totalRolls= getNumberofDice() + totalRolls;
   	return totalRolls;
   }
+  
 }
