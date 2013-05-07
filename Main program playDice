@@ -5,23 +5,34 @@ public class playDice {
   public static void main(String[] args) {
   	
   	Dice letsroll = new Dice();
-  	String answer;
+  	int answer;
+  	int typeofdice = 0;
+  	int numofdice = 0;
   	
-  	do{
-  	
-  	letsroll.displayNumofDice();
-  	
-  	JOptionPane.showMessageDialog(null, "You rolled a " + Dice.roll_1_dice() + " on a single dice");
+  	do
+  	{
+  		typeofdice = (Integer.parseInt(JOptionPane.showInputDialog("Would you like \n1) Roll a regular dice? or \n2) Choose a max value on the dice?")));
+  		
+  		if (typeofdice == 1)
+  		{
+  			numofdice = (Integer.parseInt(JOptionPane.showInputDialog(null, "How many dice would you like to roll?")));
   			
-  	letsroll.RollDice((Integer.parseInt(JOptionPane.showInputDialog("How many dice would you like to roll?"))), (Integer.parseInt(JOptionPane.showInputDialog("and their maximum value?"))));
-  	
-  	letsroll.RollDices();
-  	
-  	JOptionPane.showMessageDialog(null,"And rolled the dice " + Dice.RollCount() + " times");
+  			Dice.roll_1_dice(numofdice);				
+  		}
+  		
+  		else
+  		{
+  			letsroll.RollDice((Integer.parseInt(JOptionPane.showInputDialog("How many dice would you like to roll?"))), (Integer.parseInt(JOptionPane.showInputDialog("and their maximum value?"))));
+  			
+  			letsroll.RollDices();
+  		}
 
-  	answer = JOptionPane.showInputDialog("Would you like to play again? y/n");
-  	
-  }while (answer.equalsIgnoreCase("y"));;
+  		JOptionPane.showMessageDialog(null,"You have rolled a regular dice " + Dice.RollCount() + " times");
+  		
+  		JOptionPane.showMessageDialog(null,"You have rolled your modified dice " + letsroll.playerDiceCount() + " times");
+  		
+  		answer = JOptionPane.showConfirmDialog(null, "Would you like to play again?",null, JOptionPane.YES_NO_OPTION);
+  
+  	}while (answer == 0);
   }
-
 }
