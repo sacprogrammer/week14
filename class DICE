@@ -42,7 +42,7 @@ public class Dice {
 
   }
   	
-  public int RollCount()
+  public static int RollCount()
   {
   	return totalRolls;
   }
