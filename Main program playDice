@@ -17,7 +17,7 @@ public class playDice {
   	
   	letsroll.RollDices();
   	
-  	JOptionPane.showMessageDialog(null,"And rolled the dice " + letsroll.RollCount() + " times");
+  	JOptionPane.showMessageDialog(null,"And rolled the dice " + Dice.RollCount() + " times");
 
   	answer = JOptionPane.showInputDialog("Would you like to play again? y/n");
   	
