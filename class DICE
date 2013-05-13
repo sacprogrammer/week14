@@ -3,50 +3,67 @@ import javax.swing.JOptionPane;
 public class Dice {
   
 
-  static int maximumValue;
-  static int numofdice;
-  static int totalRolls;
-  private int numofMaxValuecount;
+	static int maximumValue;
+	static int numofdice;
+	static int totalDiceRolled;
+	private int numofMaxValuecount;
 
 
-  public static void roll_1_dice(int numOfRolls)
-  {
-  	
-  	for ( int counter = 1; counter <= numOfRolls; counter++ )
-  	{
-  		int dice;
-  		dice = 1+(int)(Math.random()*6);
-  		JOptionPane.showMessageDialog(null, "You rolled " + dice);
-  		totalRolls++;
-  	}
-  }
-  
-  public void RollDice(int playerNumofDice, int maxValue)
-  {
-  	numofdice = playerNumofDice;
-  	maximumValue = maxValue;
-  }
+	public static void roll_1_dice(int numOfRolls)
+	{
+		int diceValue=0;
+		
+		for ( int counter = 1; counter <= numOfRolls; counter++ )
+		{
+			int dice;
+			dice = 1+(int)(Math.random()*6);
+			JOptionPane.showMessageDialog(null, "You rolled " + dice);
+			totalDiceRolled++;
+			diceValue=dice+diceValue;
+			
+			if (counter == numOfRolls)
+				JOptionPane.showMessageDialog(null, "Your total value was " + diceValue);
+		}
 
-  public void RollDices()
-  {
-  	for ( int counter = 1; counter <= numofdice; counter++ )
-  	{
-  		int dice;
-  		dice = 1+(int)(Math.random()*maximumValue);			
-  		JOptionPane.showMessageDialog(null, "You got " + dice);
-  		numofMaxValuecount++;
-  	}
+	}
+	
+	public void RollDice(int playerNumofDice, int maxValue)
+	{
+		numofdice = playerNumofDice;
+		maximumValue = maxValue;
+	}
 
-  }
-  	
-  public static int RollCount()
-  {
-  	return totalRolls;
-  }
-  
-  public int playerDiceCount()
-  {
-  	return numofMaxValuecount;
-  }
-  
+	public void RollDices()
+	{
+		for (int count = 1; count <= maximumValue; count++)
+		{
+
+			for ( int counter = 1; counter <= numofdice; counter++ )
+				
+				{
+				int dice;
+				dice = 1+(int)(Math.random()*6);			
+				JOptionPane.showMessageDialog(null, "You got " + dice);
+				numofMaxValuecount++;
+				}
+		}
+
+	}
+		
+	public static int RollCount()
+	{
+		return totalDiceRolled;
+	}
+	
+	public int playerDiceCount()
+	{
+		return numofMaxValuecount;
+	}
+	
+	public void reset()
+	{
+		totalDiceRolled = 0;
+		numofMaxValuecount = 0;
+	}
+	
 }
