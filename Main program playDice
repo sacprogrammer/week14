@@ -2,7 +2,7 @@ import javax.swing.JOptionPane;
 
 public class playDice {
 
-  public static void main(String[] args) {
+	public static void main(String[] args) {
 		
 		TripleDice x3Dice = new TripleDice();
 		Dice letsroll = x3Dice;
@@ -11,19 +11,19 @@ public class playDice {
 		int answer;
 		int resetanswer;
 		int typeofdice = 0;
-
+		
 		do
 		{
-			typeofdice = (Integer.parseInt(JOptionPane.showInputDialog("Would you like \n1) Roll a regular dice 3 times? or \n2) Choose a max value on the dice?")));
+			typeofdice = (Integer.parseInt(JOptionPane.showInputDialog("Would you like \n1) Roll a regular dice 3 times? or \n2) Choose the number of dice per roll and turns?")));
 			
 			if (typeofdice == 1)
 			{
 				x3Dice.TrippleDice();
-      }
-
-      else
-  		{
-				letsroll.RollDice((Integer.parseInt(JOptionPane.showInputDialog("How many dice would you like to roll?"))), (Integer.parseInt(JOptionPane.showInputDialog("and their maximum value?"))));
+}
+			
+			else
+			{
+				letsroll.RollDice((Integer.parseInt(JOptionPane.showInputDialog("How many dice would you like to roll?"))), (Integer.parseInt(JOptionPane.showInputDialog("and how many turns?"))));
 				
 				letsroll.RollDices();
 			}
@@ -32,12 +32,12 @@ public class playDice {
 			
 			JOptionPane.showMessageDialog(null,"You have rolled your modified dice " + letsroll.playerDiceCount() + " times");
 			
-			resetanswer = JOptionPane.showConfirmDialog(null, "Would you like to reset the counters?",null, JOptionPane.YES_NO_OPTION);
+			resetanswer = JOptionPane.showConfirmDialog(null, "Would you like to play again?",null, JOptionPane.YES_NO_OPTION);
 			
 			if (resetanswer == 1)
 				x3Dice.reset();
 						
-			answer = JOptionPane.showConfirmDialog(null, "Would you like to play again?",null, JOptionPane.YES_NO_OPTION);
+			answer = JOptionPane.showConfirmDialog(null, "Would you like to reset the counters?",null, JOptionPane.YES_NO_OPTION);
 	
 		}while (answer == 0);
 	}
