@@ -3,36 +3,42 @@ import javax.swing.JOptionPane;
 public class playDice {
 
   public static void main(String[] args) {
-  	
-  	Dice letsroll = new Dice();
-  	int answer;
-  	int typeofdice = 0;
-  	int numofdice = 0;
-  	
-  	do
-  	{
-  		typeofdice = (Integer.parseInt(JOptionPane.showInputDialog("Would you like \n1) Roll a regular dice? or \n2) Choose a max value on the dice?")));
-  		
-  		if (typeofdice == 1)
-  		{
-  			numofdice = (Integer.parseInt(JOptionPane.showInputDialog(null, "How many dice would you like to roll?")));
-  			
-  			Dice.roll_1_dice(numofdice);				
-  		}
-  		
-  		else
-  		{
-  			letsroll.RollDice((Integer.parseInt(JOptionPane.showInputDialog("How many dice would you like to roll?"))), (Integer.parseInt(JOptionPane.showInputDialog("and their maximum value?"))));
-  			
-  			letsroll.RollDices();
-  		}
+		
+		TripleDice x3Dice = new TripleDice();
+		Dice letsroll = x3Dice;
+				//new Dice();
+		
+		int answer;
+		int resetanswer;
+		int typeofdice = 0;
 
-  		JOptionPane.showMessageDialog(null,"You have rolled a regular dice " + Dice.RollCount() + " times");
-  		
-  		JOptionPane.showMessageDialog(null,"You have rolled your modified dice " + letsroll.playerDiceCount() + " times");
-  		
-  		answer = JOptionPane.showConfirmDialog(null, "Would you like to play again?",null, JOptionPane.YES_NO_OPTION);
-  
-  	}while (answer == 0);
-  }
+		do
+		{
+			typeofdice = (Integer.parseInt(JOptionPane.showInputDialog("Would you like \n1) Roll a regular dice 3 times? or \n2) Choose a max value on the dice?")));
+			
+			if (typeofdice == 1)
+			{
+				x3Dice.TrippleDice();
+      }
+
+      else
+  		{
+				letsroll.RollDice((Integer.parseInt(JOptionPane.showInputDialog("How many dice would you like to roll?"))), (Integer.parseInt(JOptionPane.showInputDialog("and their maximum value?"))));
+				
+				letsroll.RollDices();
+			}
+			
+			JOptionPane.showMessageDialog(null,x3Dice.RollCountMsg());
+			
+			JOptionPane.showMessageDialog(null,"You have rolled your modified dice " + letsroll.playerDiceCount() + " times");
+			
+			resetanswer = JOptionPane.showConfirmDialog(null, "Would you like to reset the counters?",null, JOptionPane.YES_NO_OPTION);
+			
+			if (resetanswer == 1)
+				x3Dice.reset();
+						
+			answer = JOptionPane.showConfirmDialog(null, "Would you like to play again?",null, JOptionPane.YES_NO_OPTION);
+	
+		}while (answer == 0);
+	}
 }
